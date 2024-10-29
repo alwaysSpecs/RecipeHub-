@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Recipe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Recipe</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST" action="{{ url_for('upload') }}">
+            <div>
+                <label for="title">Title of the Recipe:</label>
+                <input type="text" id="title" name="name" required>
+            </div>
+            <div>
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
+            </div>
+            <div>
+                <label for="steps">Steps/Instructions:</label>
+                <textarea id="steps" name="steps" rows="4" required></textarea>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="dessert">Dessert</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="breakfast">Breakfast</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <button type="submit">Upload Recipe</button>
+            </div>
+        </form>
+        <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Search Results</h1>
+        <form method="GET" action="{{ url_for('search') }}">
+            <input type="text" name="query" placeholder="Search for recipes..." required>
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <h2>Search Results for "{{ query }}"</h2>
+    <ul>
+        {% if recipes %}
+            {% for recipe in recipes %}
+                <li>
+                    <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.name }}</a> - Category: {{ recipe.category.name }}
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No recipes found matching your query.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

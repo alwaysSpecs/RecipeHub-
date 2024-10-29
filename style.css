@@ -1,0 +1,110 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Light background for contrast */
+  color: #333; /* Dark text for readability */
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Header Styles */
+header {
+  background: #35424a; /* Dark header */
+  color: #ffffff; /* White text */
+  padding: 5px 0;
+  text-align: center;
+}
+
+/* Navigation Styles */
+nav {
+  background: #35424a; /* Dark navigation bar */
+  color: #ffffff; /* White text */
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #ffffff; /* White text */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Button Styles */
+button {
+  background: #35424a; /* Dark button */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+}
+
+button:hover {
+  background: #45a049; /* Change color on hover */
+}
+
+
+form {
+  margin: 20px 0;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 15%;
+  padding: 7px;
+  margin: 5px 0;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Category and Section Styles */
+.categories {
+  margin: 20px 0;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories ul li {
+  margin: 10px 0;
+}
+
+.categories ul li a {
+  text-decoration: none;
+  color: #35424a; /* Dark link */
+  font-weight: bold;
+}
+
+.categories ul li a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+      width: 90%; /* Slightly wider on small screens */
+  }
+  
+  nav ul li {
+      display: block; /* Stack navigation items */
+      margin: 10px 0; /* Space between items */
+  }
+}
